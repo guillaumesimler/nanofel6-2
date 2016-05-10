@@ -8,12 +8,41 @@
 </head>
 
 <body>
+	<section id="todoapp">
+		<header id="header">
+			<h1>To dos</h1>
+			<!-- Why no type? -->
+			<input id="new-todo" placeholder="What needs to be done?" autofocus> 
+
+		</header>
+	</section>
+
+	<section id="main">
+		<input id="toggle-all" type="checkbox">
+		<label for="toggle-all">Mark all as complete</label>
+		<ul id="todolist"></ul>
+	</section>
+
+	<!-- Why no related template? -->
+	<footer id="footer"></footer>
+
+	<div id="info">
+		<p>Double-click to edit a todo</p>
+		<p>Written by Addy Osmani, adapted by Guillaume Simler</p>
+	</div>
+
+
+
+	<!-- Script Section -->
+		<!-- Templates -->
 	<script type="text/template" id="item-template"></script>
 	<script type="text/template" id="stats-template"></script>
+		<!-- Libraries -->
 	<script src="js/lib/jquery.min.js"></script>
 	<script src="js/lib/underscore-min.js"></script>
 	<script src="js/lib/backbone-min.js"></script>
 	<script src="js/lib/backbone.localStorage.js"></script>
+		<!-- Application/Scripts -->
 	<script src="js/models/todo.js"></script>
 	<script src="js/collections/todos.js"></script>
 	<script src="js/views/todos.js"></script>
