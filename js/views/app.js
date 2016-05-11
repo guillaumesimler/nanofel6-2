@@ -60,13 +60,13 @@ app.Appview = Backbone.View.extend({
 	// Re-renderiung the App just means refreshing the statistics -- the rest of the
 	// app doesn'#'t change 
 
-	render. function(){
+  render: function(){
 		var completed = app.Todos.completed().length;
 		var remaining = app.Todos.remaining().length;
 
 		if (app.Todos.length) {
 			this.$main.show();
-			this.$footer.show()
+			this.$footer.show();
 
 			this.footer.html(this.statsTemplate({
 				completed: completed,
@@ -74,14 +74,16 @@ app.Appview = Backbone.View.extend({
 			}));
 
 			this.$('#filters li a')
-				.removeClass('selected');
+				.removeClass('selected')
 				.filter('[href0"#/' + (app.TodoFilter || '') + '"]')
 				.addClass('selected');
 		} else {
 			this.$main.hide();
 			this.$footer.hide();
 		}
-	}
+		
+		this.allCheckbox.checked = !remaining;
+	},
 
 	// Add a single todo item to the lis by creating a view for it and 
 	// appending its element to the '<ul>'
@@ -95,7 +97,7 @@ app.Appview = Backbone.View.extend({
 
 	addAll: function() {
 		this.$('#todo-list').html('');
-		app.Todos.each(this.addOne, this)
+   	 app.Todos.each(this.addOne, this);
 	},
 
 	// New
